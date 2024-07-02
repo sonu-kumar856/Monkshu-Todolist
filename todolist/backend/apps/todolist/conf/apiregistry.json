@@ -1,0 +1,3 @@
+{
+    "/apis/todo": "/apis/todo.js?needsToken=false&addsToken=sub:access"
+}

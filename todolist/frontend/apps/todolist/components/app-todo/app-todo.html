@@ -1,0 +1,68 @@
+<div id="app-todo">
+    <h1>{{i18n.TodoListTitle}}</h1>
+    <div class="add-todo">
+        <input type="text" id="new-todo" placeholder="{{i18n.NewTodoPlaceholder}}">
+        <button onclick="monkshu_env.components['app-todo'].addTodo()">{{i18n.AddTodo}}</button>
+    </div>
+    <ul id="todo-list">
+        {{#todos}}
+        <li>
+            <span class="{{#completed}}completed{{/completed}}">{{text}}</span>
+            <button onclick="monkshu_env.components['app-todo'].toggleTodo('{{id}}')">{{i18n.ToggleComplete}}</button>
+            <button onclick="monkshu_env.components['app-todo'].deleteTodo('{{id}}')">{{i18n.Delete}}</button>
+        </li>
+        {{/todos}}   
+    </ul>
+</div>
+
+<style>
+    #app-todo {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .add-todo {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    #new-todo {
+        flex-grow: 1;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #todo-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #todo-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .completed {
+        text-decoration: line-through;
+        color: #888;
+    }
+</style>
